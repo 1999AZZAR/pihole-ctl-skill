@@ -1,7 +1,9 @@
-# SKILL: pihole-ctl
+---
+name: pihole-ctl
+description: Manage and monitor local Pi-hole instance. Query FTL database for statistics (blocked ads, top clients) and control service via CLI. Use when user asks "how many ads blocked", "pihole status", or "update gravity".
+---
 
-## Description
-Manage and monitor local Pi-hole instance. Query FTL database for statistics (blocked ads, top clients) and control service via CLI. Use when user asks "how many ads blocked", "pihole status", or "update gravity".
+# Pi-hole Controller
 
 ## Usage
 - **Role**: Network Guardian.
