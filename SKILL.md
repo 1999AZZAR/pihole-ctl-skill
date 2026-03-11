@@ -16,6 +16,18 @@ description: Manage and monitor local Pi-hole instance. Query FTL database for s
 3.  **Blocklists**: Update Gravity (`pihole -g`).
 4.  **Audit**: Identify chatty clients or top blocked domains.
 
+## Safety & Approval Gates
+The following actions affect the entire local network and **require explicit human confirmation** before execution:
+
+| Action | Risk | Gate |
+| --- | --- | --- |
+| `pihole disable` | ⚠️ HIGH — Disables DNS blocking network-wide | **Requires human approval** |
+| `pihole -g` (gravity update) | MEDIUM — Temporarily disrupts DNS resolution | **Requires human approval** |
+| Database queries (read-only) | LOW | No gate required |
+| `pihole status` / `pihole enable` | LOW | No gate required |
+
+> **Note**: The agent MUST NOT disable Pi-hole without explicit user confirmation, as this removes DNS-level protection for all devices on the network.
+
 ## Scripts
 - `scripts/query_db.py`: Python script using native `sqlite3` library to query Pi-hole stats safely.
   - Requires read permission on `/etc/pihole/pihole-FTL.db`.
